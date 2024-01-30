@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
 const Weather = () => {
-    const [weather, setWeather] = useState([])
+   
     const[weatherDetail, setWeatherDetail] = useState(false)
     const [inputCity, setInputCity] = useState("")
     const [temp, setTemp] = useState("")
@@ -38,7 +38,7 @@ const Weather = () => {
 
             axios.get(api)
                 .then((response) => {
-                    setWeather(response.data);
+                 
                     setTemp(response.data.current.temp_c);
                     setHumid(response.data.current.humidity);
                     setCondi(response.data.current.condition.text);
@@ -57,6 +57,7 @@ const Weather = () => {
                 });
         } catch (e) {
             console.log(e);
+            
         }
     };
 
@@ -76,7 +77,7 @@ const Weather = () => {
         if(inputCity){
             getWeatherData()
         }
-    },[inputCity, city])
+    },)
 
 
   return (
